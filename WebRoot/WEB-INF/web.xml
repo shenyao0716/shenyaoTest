@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>loginServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.loginServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getAllUsersInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getAllUsersInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>updateUserInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.updateUserInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteUserInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteUserInfoServ</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomUsageServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomUsageServ</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>addUserInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.addUserInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getAllRoomsInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getAllRoomsInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteRoomInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteRoomInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomTypeServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomTypeServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>addRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.addRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>updataRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.updataRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getDeviceInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getDeviceInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomDeviceServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomDeviceServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>updateRoomDeviceServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.updateRoomDeviceServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteRoomDeviceServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteRoomDeviceServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomTypeAServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomTypeAServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getTypeRoomInfServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getTypeRoomInfServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getAdvanceMeetServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getAdvanceMeetServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteAdvanceMeetServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteAdvanceMeetServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getTypeMeetRoomInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getTypeMeetRoomInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomUserTypeServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomUserTypeServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getTypeMeetRoomUserServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getTypeMeetRoomUserServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getAvanceMeetRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getAvanceMeetRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getIngMeetRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getIngMeetRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getIngRoomUserServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getIngRoomUserServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getIngUserTypeServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getIngUserTypeServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getOverMeetInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getOverMeetInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteOverMeetServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteOverMeetServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getOverMeetRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getOverMeetRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getCancelMeetServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getCancelMeetServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteCancelMeetServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteCancelMeetServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getCancelMeetRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getCancelMeetRoomServ</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getUserUsageServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getUserUsageServ</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>addInfoWhenCancelServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.addInfoWhenCancelServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getOverMeetImgServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getOverMeetImgServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getUserInfoNameServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getUserInfoNameServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>userUseSituationFbackServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.userUseSituationFbackServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>overfeedbackServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.overfeedbackServ</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>loginServ</servlet-name>
+    <url-pattern>/loginServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomServ</servlet-name>
+    <url-pattern>/getRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getAllUsersInfoServ</servlet-name>
+    <url-pattern>/getAllUsersInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updateUserInfoServ</servlet-name>
+    <url-pattern>/updateUserInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteUserInfoServ</servlet-name>
+    <url-pattern>/deleteUserInfoServ</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>getRoomUsageServ</servlet-name>
+    <url-pattern>/getRoomUsageServ</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>addUserInfoServ</servlet-name>
+    <url-pattern>/addUserInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getAllRoomsInfoServ</servlet-name>
+    <url-pattern>/getAllRoomsInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteRoomInfoServ</servlet-name>
+    <url-pattern>/deleteRoomInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomTypeServ</servlet-name>
+    <url-pattern>/getRoomTypeServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addRoomServ</servlet-name>
+    <url-pattern>/addRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updataRoomServ</servlet-name>
+    <url-pattern>/updataRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getDeviceInfoServ</servlet-name>
+    <url-pattern>/getDeviceInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomDeviceServ</servlet-name>
+    <url-pattern>/getRoomDeviceServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updateRoomDeviceServ</servlet-name>
+    <url-pattern>/updateRoomDeviceServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteRoomDeviceServ</servlet-name>
+    <url-pattern>/deleteRoomDeviceServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomTypeAServ</servlet-name>
+    <url-pattern>/getRoomTypeAServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getTypeRoomInfServ</servlet-name>
+    <url-pattern>/getTypeRoomInfServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getAdvanceMeetServ</servlet-name>
+    <url-pattern>/getAdvanceMeetServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteAdvanceMeetServ</servlet-name>
+    <url-pattern>/deleteAdvanceMeetServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getTypeMeetRoomInfoServ</servlet-name>
+    <url-pattern>/getTypeMeetRoomInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomUserTypeServ</servlet-name>
+    <url-pattern>/getRoomUserTypeServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getTypeMeetRoomUserServ</servlet-name>
+    <url-pattern>/getTypeMeetRoomUserServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getAvanceMeetRoomServ</servlet-name>
+    <url-pattern>/getAvanceMeetRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getIngMeetRoomServ</servlet-name>
+    <url-pattern>/getIngMeetRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getIngRoomUserServ</servlet-name>
+    <url-pattern>/getIngRoomUserServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getIngUserTypeServ</servlet-name>
+    <url-pattern>/getIngUserTypeServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getOverMeetInfoServ</servlet-name>
+    <url-pattern>/getOverMeetInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteOverMeetServ</servlet-name>
+    <url-pattern>/deleteOverMeetServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getOverMeetRoomServ</servlet-name>
+    <url-pattern>/getOverMeetRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getCancelMeetServ</servlet-name>
+    <url-pattern>/getCancelMeetServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteCancelMeetServ</servlet-name>
+    <url-pattern>/deleteCancelMeetServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getCancelMeetRoomServ</servlet-name>
+    <url-pattern>/getCancelMeetRoomServ</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>getUserUsageServ</servlet-name>
+    <url-pattern>/getUserUsageServ</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>addInfoWhenCancelServ</servlet-name>
+    <url-pattern>/addInfoWhenCancelServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getOverMeetImgServ</servlet-name>
+    <url-pattern>/getOverMeetImgServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getUserInfoNameServ</servlet-name>
+    <url-pattern>/getUserInfoNameServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>userUseSituationFbackServ</servlet-name>
+    <url-pattern>/userUseSituationFbackServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>overfeedbackServ</servlet-name>
+    <url-pattern>/overfeedbackServ</url-pattern>
+  </servlet-mapping>
+
+
+<!-- 
+<filter>  
+    <filter-name>LoginFilter</filter-name>  
+    <filter-class>com.MeetingRoomMS.Filter.LoginFilter</filter-class>  
+ </filter> 
+ 
+ <filter-mapping>  
+    <filter-name>LoginFilter</filter-name>  
+    <url-pattern>/JSP/*</url-pattern>  
+</filter-mapping>   -->
+
+
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+
+
+   
+<!--    <welcome-file-list>
+        <welcome-file>JSP/index.jsp</welcome-file>      
+   </welcome-file-list> -->
+  
+
+</web-app>

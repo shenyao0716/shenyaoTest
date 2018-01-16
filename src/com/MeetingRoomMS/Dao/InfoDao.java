@@ -1,0 +1,59 @@
+package com.MeetingRoomMS.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.MeetingRoomMS.Tool.DBConn;
+
+public class InfoDao {
+
+	private Connection conn;
+	private PreparedStatement prst;
+	private ResultSet rs;
+	
+
+	public int addInfoWhenCancelMeet(String r,int uid){
+		conn=DBConn.getCon();
+		try {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+			String time=df.format(new Date());
+			prst=conn.prepareStatement("insert into Inform (content,typeid,status,time,userid)"+"values(?,4,0,?,?)");
+			prst.setString(1, r);
+			prst.setString(2, time);
+			prst.setInt(3, uid);
+			prst.executeUpdate();
+			return 1;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();		
+			return 0;
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}	
+	}
+	
+	public int userUseSituationFback(String r,int uid){
+		conn=DBConn.getCon();
+		try {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+			String time=df.format(new Date());
+			prst=conn.prepareStatement("insert into Inform (content,typeid,status,time,userid)"+"values(?,2,0,?,?)");
+			prst.setString(1, r);
+			prst.setString(2, time);
+			prst.setInt(3, uid);
+			prst.executeUpdate();
+			return 1;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();		
+			return 0;
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}	
+	}
+}

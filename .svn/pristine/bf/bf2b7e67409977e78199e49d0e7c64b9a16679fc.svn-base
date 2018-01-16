@@ -1,0 +1,229 @@
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>用户使用情况</title>
+    
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="pragma" content="no-cache">
+	
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+   <link href="Static/css/style.css" rel="stylesheet">
+    <link href="Static/css/style-responsive.css" rel="stylesheet">
+    <link href="Static/css/table.css" rel="stylesheet">
+     <link href="CSS/page.css" rel="stylesheet"> 
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    
+  </head> 
+ <body class="sticky-header">
+
+   <section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+        <!--logo and iconic logo start-->
+       
+        <div class="logo" style="text-align:center">
+            <a href="JSP/index.jsp"><img style="width:45px;height:45px;border-radius:22.5px" 
+               src="Static/images/title.png" alt=""></a>
+        </div>
+       <div class="logo-icon text-center">
+            <a href="JSP/index.jsp"><img style="width:45px;height:45px;border-radius:22.5px"
+                src="Static/images/title.png" alt=""></a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li class="menu-list"><a href="JSP/index.jsp"><i class="fa fa-square"></i> <span>首页</span></a>      
+                </li> 
+                 <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-file-text"></i><span>会议清单管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/advance.jsp">预定会议信息 </a></li>
+                         <li><a href="JSP/ing.jsp">正在开始会议信息 </a></li>
+                         <li><a href="JSP/over.jsp">已结束会议信息 </a></li>
+                         <li><a href="JSP/cancel.jsp">已取消会议信息 </a></li>
+                     </ul>
+                 </li>
+                 <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-home"></i> <span>会议室管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/room.jsp">会议室信息查询</a></li>
+                     </ul>
+                 </li>
+                 <li class="menu-list   nav-active "><a href="JSP/index.jsp"><i class="fa fa-bar-chart-o"></i> <span>统计信息管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/rsage.jsp">会议室使用情况报表</a></li>
+                        <li  class="active"><a href="JSP/usage.jsp">用户使用情况报表</a></li>
+                     </ul>
+                 </li>
+                  <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-users"></i> <span>用户管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/user.jsp">用户信息查询</a></li>
+                     </ul>
+                 </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <jsp:include page="common.jsp" flush="true" />  
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+             <div class="wrapper">
+             <div class="row">
+                <div class="col-sm-12">
+                <section class="panel">
+           
+                <div class="panel-body">
+                   <div class="panel panel-default">
+                    <div class="panel-body" style="line-height:34px;font-size:18px">
+                          <div class="row"> 
+					           <div class="col-lg-7" style="line-height:34px;font-size:18px">
+                                                                                                           用户使用情况表
+						       </div>
+						       <div class="col-lg-4 col-lg-offset--1">
+							      <div class="input-group input-large custom-date-range">
+                                            <input type="text" class="form-control dpd1 " readonly style="background:#ffffff"  id="from"  placeholder="起始日期" >
+                                            <span class="input-group-addon">To</span>
+                                            <input type="text" class="form-control dpd2" readonly style="background:#ffffff"  id="to"  placeholder="结束日期" >
+                                   </div>
+                               </div> 
+				           </div>
+                    </div>
+                   </div>
+                   <div class="clearfix">
+				   <div class="row">
+		            <div class="col-lg-3 ">
+                     <div class="input-group" >
+                         <span class="input-group-addon">用户选择</span>
+                         <select class="form-control input-sm m-bot15" onchange="getData(fromdate,todate)" id="hosselect">
+						      
+                         </select>		
+
+                      </div>
+					 </div>
+		
+			      </div>
+                <table class="table table-hover table-striped">
+		          <thead>
+		         	<tr>
+			        	<th class="col-lg-1">序号</th>
+				        <th class="col-lg-2">用户 </th>     
+				        <th class="col-lg-2">使用次数</th>
+				        <th class="col-lg-2">使用时长</th>
+			        </tr>
+		          </thead>
+	              <tbody id="Info">
+	         	    <tr>
+			        	<td>1&nbsp;&nbsp;<a onclick=''>查看</a></td>
+			            <td>纪文翔</td>
+			            <td>会议室1</td>
+			            <td>09:00-10:30</td>
+			            <td>2017-03-11</td>			            
+			            <td><a  style='color:red' onclick=''>删除</a></td>
+			       </tr>
+		          </tbody>
+	            </table>
+	           <div class="ui-page" id="ui-page1">  <!-- 页码按钮 -->
+              </div>
+	         </div>
+           </div>
+          </section>
+          </div>
+          </div>
+          </div>
+        <!--body wrapper end-->
+    </div>
+    <!-- main content end-->
+ </section>
+
+ <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="Static/js/jquery-1.10.2.min.js"></script>
+    <script src="Static/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="Static/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="Static/js/bootstrap.min.js"></script>
+    <script src="Static/js/modernizr.min.js"></script>
+    <script src="Static/js/jquery.nicescroll.js"></script>
+    
+    
+     <script type="text/javascript" src="JS/js/laydate.js"></script>
+    <script type="text/javascript" src="JS/page.js"></script>
+    <!--common scripts for all pages-->
+    <script src="Static/js/scripts.js"></script>
+    
+    
+    <script>
+
+   //默认近30天
+     var fromdate=getdate(-30);
+     var todate=getdate(0);
+   
+    $("#from").val(fromdate);
+    $("#to").val(todate);
+    
+    
+	laydate.skin('molv');//日历切换皮肤，请查看skins下面皮肤
+	
+	//日期范围限制
+    var start = {
+       elem: '#from',
+       max: todate, //最大日期
+       choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         fromdate=datas;    
+       }
+     };
+
+    var end ={
+       elem: '#to',
+       min: fromdate,
+       max: todate,
+       choose: function(datas){
+          start.max=datas; //结束日选好后，充值开始日的最大日期
+          todate=datas;
+       }
+     };
+     //绑定元素
+    laydate(start);
+    laydate(end);
+
+  //得到时间
+  function getdate(n){
+
+	var nowdate= new Date();
+	var date = new Date(nowdate.getTime()+n* 24 * 3600 * 1000);
+	var y = date.getFullYear();
+	var m = date.getMonth()+1;
+	var d = date.getDate();
+    if(m<10){m="0"+m;}	
+     
+    if(d<10){d="0"+d;}
+	 return y+"-"+m+"-"+d;
+
+   }
+	  
+	  
+    </script>
+ </body>
+</html>

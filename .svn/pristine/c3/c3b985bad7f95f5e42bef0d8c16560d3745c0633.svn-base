@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>loginServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.loginServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getAllUsersInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getAllUsersInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>updateUserInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.updateUserInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteUserInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteUserInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>addUserInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.addUserInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getAllRoomsInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getAllRoomsInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteRoomInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteRoomInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomTypeServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomTypeServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>addRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.addRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>updataRoomServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.updataRoomServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getDeviceInfoServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getDeviceInfoServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomDeviceServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomDeviceServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>updateRoomDeviceServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.updateRoomDeviceServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>deleteRoomDeviceServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.deleteRoomDeviceServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getRoomTypeAServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getRoomTypeAServ</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getTypeRoomInfServ</servlet-name>
+    <servlet-class>com.MeetingRoomMS.Servlet.getTypeRoomInfServ</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>loginServ</servlet-name>
+    <url-pattern>/loginServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomServ</servlet-name>
+    <url-pattern>/getRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getAllUsersInfoServ</servlet-name>
+    <url-pattern>/getAllUsersInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updateUserInfoServ</servlet-name>
+    <url-pattern>/updateUserInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteUserInfoServ</servlet-name>
+    <url-pattern>/deleteUserInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addUserInfoServ</servlet-name>
+    <url-pattern>/addUserInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getAllRoomsInfoServ</servlet-name>
+    <url-pattern>/getAllRoomsInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteRoomInfoServ</servlet-name>
+    <url-pattern>/deleteRoomInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomTypeServ</servlet-name>
+    <url-pattern>/getRoomTypeServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addRoomServ</servlet-name>
+    <url-pattern>/addRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updataRoomServ</servlet-name>
+    <url-pattern>/updataRoomServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getDeviceInfoServ</servlet-name>
+    <url-pattern>/getDeviceInfoServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomDeviceServ</servlet-name>
+    <url-pattern>/getRoomDeviceServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updateRoomDeviceServ</servlet-name>
+    <url-pattern>/updateRoomDeviceServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteRoomDeviceServ</servlet-name>
+    <url-pattern>/deleteRoomDeviceServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getRoomTypeAServ</servlet-name>
+    <url-pattern>/getRoomTypeAServ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getTypeRoomInfServ</servlet-name>
+    <url-pattern>/getTypeRoomInfServ</url-pattern>
+  </servlet-mapping>
+
+
+
+
+   
+   <welcome-file-list>
+        <welcome-file>JSP/index.jsp</welcome-file>      
+   </welcome-file-list>
+  
+
+</web-app>

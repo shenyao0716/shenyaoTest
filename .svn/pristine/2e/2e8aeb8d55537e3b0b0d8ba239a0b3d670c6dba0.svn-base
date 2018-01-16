@@ -1,0 +1,160 @@
+package com.MeetingRoomMS.Bll;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.fileupload.FileItem;
+
+import com.MeetingRoomMS.Dao.RoomDao;
+import com.MeetingRoomMS.Dao.RoomTypeDao;
+import com.MeetingRoomMS.Entity.room;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+public class RoomBll {
+   
+	public JSONArray getRoom(){
+		List<room> list=new RoomDao().getRoomInfo();
+		
+		JSONArray ja=new JSONArray();
+		String tpname=null;
+		for(room r:list){
+			JSONObject jo=new JSONObject();
+			jo.put("roomid", r.getRoomid());
+			jo.put("room", r.getRoom());
+			jo.put("capacity", r.getCapacity());
+			jo.put("address", r.getAddress());
+			jo.put("memo", r.getMemo());
+			jo.put("imgsrc", r.getImgsrc());
+			tpname=new RoomTypeDao().getRoomTypeName(r.getTypeid());
+			jo.put("type", tpname);
+			
+			ja.add(jo);
+			
+		}
+		return ja;
+	}
+	
+	public JSONArray getTypeRoom(int id){
+		List<room> list=new RoomDao().getRoomInfoType(id);
+		
+		JSONArray ja=new JSONArray();
+		String tpname=null;
+		for(room r:list){
+			JSONObject jo=new JSONObject();
+			jo.put("roomid", r.getRoomid());
+			jo.put("room", r.getRoom());
+			jo.put("capacity", r.getCapacity());
+			jo.put("address", r.getAddress());
+			jo.put("memo", r.getMemo());
+			jo.put("imgsrc", r.getImgsrc());
+			tpname=new RoomTypeDao().getRoomTypeName(r.getTypeid());
+			jo.put("type", tpname);
+			
+			ja.add(jo);
+			
+		}
+		return ja;
+	}
+	
+	public int deleteRoom(int id){
+		int f=new RoomDao().checkRoomExist(id);
+		if(f>0){
+			return 0;
+		}else
+		{int flag=new RoomDao().deleteRoomById(id);
+		return flag;}
+	}
+	
+	public int addroomb(List<FileItem> list,String savepath){
+		Map<String, String> map=new HashMap<String, String>();
+		
+		room r=new room();
+		for(FileItem item:list){
+			try{
+			 	   if(item.isFormField()){
+				      String name = item.getFieldName();  //获取name值
+					  String value = item.getString("UTF-8");//获取value值
+				      map.put(name, value);
+			       }
+			       else{
+					 if(item!=null){
+						  inputFile(item,savepath,r);  //写入文件
+				     }
+				
+				 }	
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		r.setRoom(map.get("rrrname"));
+		r.setCapacity(Integer.valueOf(map.get("rrrcapacity")));
+		r.setAddress(map.get("rrraddre"));
+		r.setMemo(map.get("rrrmemo"));
+		r.setTypeid(Integer.valueOf(map.get("rrrselect")));
+		
+		int status=new RoomDao().addroom(r);
+		return status;	
+	}
+	private void inputFile(FileItem item, String savepath, room r) {
+		String filename=item.getName();
+        InputStream in;
+		try {
+			in = item.getInputStream();
+	
+   		FileOutputStream out = new FileOutputStream(savepath + "\\" + filename);
+   		//System.out.println(savepath + "\\" + filename);
+   		byte buffer[] = new byte[1024];
+   		int len = 0;
+   		while((len=in.read(buffer))>0){
+   		  out.write(buffer, 0, len);
+        }
+   		r.setImgsrc("images/"+filename);
+   		//r.setImgname(filename);
+   		in.close();
+		out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+        }
+		
+	}
+	
+	public int updateRoomInfo(List<FileItem> list,String savepath,int idd){
+        Map<String, String> map=new HashMap<String, String>();		
+		room r=new room();
+		for(FileItem item:list){
+			try{
+			 	   if(item.isFormField()){
+				      String name = item.getFieldName();  //获取name值
+					  String value = item.getString("UTF-8");//获取value值
+				      map.put(name, value);
+			       }
+			       else{
+					 if(item!=null){
+						  inputFile(item,savepath,r);  //写入文件
+				     }	
+				 }	
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		r.setRoom(map.get("roname"));
+		r.setCapacity(Integer.valueOf(map.get("rocapacity")));
+		r.setAddress(map.get("roaddr"));
+		r.setMemo(map.get("romemo"));
+		r.setTypeid(Integer.valueOf(map.get("roselect")));
+		r.setRoomid(idd);
+		
+		int status=new RoomDao().updateRoom(r);
+		return status;	
+	}
+}

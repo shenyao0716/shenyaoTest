@@ -1,0 +1,91 @@
+package com.MeetingRoomMS.Bll;
+
+import java.util.List;
+
+import com.MeetingRoomMS.Dao.UserDao;
+import com.MeetingRoomMS.Entity.user;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+public class UserBll {
+
+	public JSONObject uservalidBll(String n,String p){
+		JSONObject jo=new UserDao().uservalid(n, p);
+		return jo;
+		
+		
+	}
+	
+	public JSONArray getUser(){
+		List<user> list=new UserDao().getUserInfo();
+		
+		JSONArray ja=new JSONArray();
+		
+		for(user u:list){
+			JSONObject jo=new JSONObject();
+			jo.put("userid", u.getUserid());
+			jo.put("name", u.getName());
+			jo.put("username", u.getUsername());
+			jo.put("userpwd", u.getUserpwd());
+			jo.put("phone", u.getPhone());
+			jo.put("memo", u.getMemo());
+			jo.put("openid", u.getOpenid());
+			jo.put("email", u.getEmail());
+			ja.add(jo);
+		}
+		return ja;
+	}
+	public JSONArray getUserInfoNameBll(int id){
+        List<user> list=new UserDao().getUserInfoName(id);
+		
+		JSONArray ja=new JSONArray();
+		
+		for(user u:list){
+			JSONObject jo=new JSONObject();
+			jo.put("userid", u.getUserid());
+			jo.put("name", u.getName());
+			jo.put("username", u.getUsername());
+			jo.put("userpwd", u.getUserpwd());
+			jo.put("phone", u.getPhone());
+			jo.put("memo", u.getMemo());
+			jo.put("openid", u.getOpenid());
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getUserA(){
+		List<user> list=new UserDao().getUserInfo();
+		
+		JSONArray ja=new JSONArray();
+		JSONObject jo1 =new JSONObject();
+		jo1.put("userid", "0");
+		jo1.put("name", "全部");
+		ja.add(jo1);
+		for(user u:list){
+			JSONObject jo=new JSONObject();
+			jo.put("userid", u.getUserid());
+			jo.put("name", u.getName());
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public int updateuser(JSONObject u){
+		int flag=new UserDao().updateUserInfo(u);
+		return flag;
+	}
+	
+	public int deleteUser(int id){
+		int flag=new UserDao().deleteUserById(id);
+		return flag;
+	}
+	
+	public int addUserInfo(JSONObject u){
+		int flag=new UserDao().addUserInfo(u);
+		return flag;
+	}
+}

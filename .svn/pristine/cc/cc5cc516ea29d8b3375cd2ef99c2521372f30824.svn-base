@@ -1,0 +1,564 @@
+package com.MeetingRoomMS.Bll;
+
+import java.util.List;
+
+import com.MeetingRoomMS.Dao.MeetingDao;
+import com.MeetingRoomMS.Entity.cutimg;
+import com.MeetingRoomMS.Entity.meeting;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+public class MeetingBll {
+
+	public JSONArray getMeetInfoZero(String s,String e){
+		List<meeting> list=new MeetingDao().getAdvancceMeetZero(s,e);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	public JSONArray getMeetInfoOne(){
+		List<meeting> list=new MeetingDao().getAdvancceMeetOne();
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoTwo(String s,String e){
+		List<meeting> list=new MeetingDao().getAdvancceMeetTwo(s, e);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	public JSONArray getMeetInfoThree(String s,String e){
+		List<meeting> list=new MeetingDao().getAdvancceMeetThree(s,e);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			jo.put("cancelperson", m.getCancelperson());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoZeroTwo(int id,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getChooseTypeTwo(id, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+			//System.out.println(ja);
+		}
+		return ja;
+		
+	}
+	
+	
+	public JSONArray getMeetInfoZeroThree(int typeid,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getChooseTypeThree(typeid, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoZeroFour(int id,int idd,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getChooseTypeFour(id, idd, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoOneOne(int id){
+		List<meeting> list=new MeetingDao().getIngUserTypeO(id);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoTwoTwo(int id,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getOverChooseTypeTwo(id, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoTwoThree(int id,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getOverChooseTypeThree(id, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+			System.out.println(ja);
+		}
+		return ja;
+	}
+	public JSONArray getMeetInfoTwoFour(int id,int idd,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getOverChooseTypeFour(id, idd, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoThreeTwo(int id,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getCancelChooseTypeTwo(id, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getMeetInfoThreeThree(int id,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getCancelChooseTypeThree(id, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	public JSONArray getMeetInfoThreeFour(int id,int idd,String sdate,String edate){
+		List<meeting> list=new MeetingDao().getCancelChooseTypeFour(id, idd, sdate, edate);
+		
+		JSONArray ja=new JSONArray();
+		String capacity=null;
+		String address=null;
+		String roomname=null;
+		String username=null;
+		for(meeting m:list){
+			JSONObject jo=new JSONObject();
+			jo.put("meetingid", m.getMeetingid());
+			jo.put("status", m.getStatus());
+			jo.put("sch_starttime", m.getSch_startime());
+			jo.put("sch_endtime", m.getSch_endtime());
+			jo.put("roomid", m.getRoomid());
+			jo.put("act_starttime", m.getAct_starttime());
+			jo.put("act_endtime", m.getAct_endtime());
+			jo.put("userid", m.getUserid());
+			jo.put("content", m.getContent());
+			jo.put("memo", m.getMemo());
+			jo.put("code", m.getCode());
+			jo.put("attendance", m.getAttendence());
+			capacity=new MeetingDao().getTypeRoomCapacity(m.getRoomid());
+			address=new MeetingDao().getTypeRoomAddress(m.getRoomid());
+			roomname=new MeetingDao().getTypeRoomName(m.getRoomid());
+			username=new MeetingDao().getUserName(m.getUserid());
+			
+			jo.put("capacity", capacity);
+			jo.put("address", address);
+			jo.put("roomname", roomname);
+			jo.put("username", username);
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public JSONArray getImg(int id){
+		List<cutimg> list=new MeetingDao().getMeetImg(id);
+		
+		JSONArray ja=new JSONArray();
+		
+		for(cutimg ct:list){
+			JSONObject jo=new JSONObject();
+			jo.put("imgsrc", ct.getImgsrc());
+			jo.put("status", ct.getStatus());
+			ja.add(jo);
+		}
+		
+		return ja;
+	}
+	
+	public int deleteAdvanceMeet(int id,String reason,String admin){
+		int flag=new MeetingDao().deleteAdvanceM(id,reason,admin);
+		return flag;
+	}
+	
+	public int overFeedback(int id,String reason){
+		int flag=new MeetingDao().overfeedback(id, reason);
+		return flag;
+	}
+	
+
+	public int deleteOverMeet(int id){
+		int flag=new MeetingDao().deleteOverM(id);
+		return flag;
+	}
+}

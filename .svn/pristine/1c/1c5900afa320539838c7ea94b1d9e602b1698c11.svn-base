@@ -1,0 +1,42 @@
+package com.MeetingRoomMS.Bll;
+
+import java.util.List;
+
+import com.MeetingRoomMS.Dao.UserDao;
+import com.MeetingRoomMS.Entity.user;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+public class UserBll {
+
+	public JSONArray getUser(){
+		List<user> list=new UserDao().getUserInfo();
+		
+		JSONArray ja=new JSONArray();
+		
+		for(user u:list){
+			JSONObject jo=new JSONObject();
+			jo.put("userid", u.getUserid());
+			jo.put("name", u.getName());
+			jo.put("username", u.getUsername());
+			jo.put("userpwd", u.getUserpwd());
+			jo.put("phone", u.getPhone());
+			jo.put("memo", u.getMemo());
+			jo.put("openid", u.getOpenid());
+			
+			ja.add(jo);
+		}
+		return ja;
+	}
+	
+	public int updateuser(JSONObject u){
+		int flag=new UserDao().updateUserInfo(u);
+		return flag;
+	}
+	
+	public int deleteUser(int id){
+		int flag=new UserDao().deleteUserById(id);
+		return flag;
+	}
+}

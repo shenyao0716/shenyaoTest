@@ -1,0 +1,209 @@
+package com.MeetingRoomMS.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+
+
+
+import com.MeetingRoomMS.Entity.user;
+import com.MeetingRoomMS.Tool.DBConn;
+
+
+public class UserDao {
+
+	private Connection conn;
+	private PreparedStatement prst;
+	private ResultSet rs;
+	
+	public JSONObject uservalid(String n,String p){
+		conn=DBConn.getCon();
+		try {
+			prst=conn.prepareStatement("select * from Users where username=? and userpwd=?");
+			prst.setString(1, n);
+			prst.setString(2, p);
+			rs=prst.executeQuery();
+			while(rs.next()){
+				JSONObject o=new JSONObject();
+				o.put("userid", rs.getInt("userid"));
+				o.put("username", rs.getString("username"));
+				o.put("userpwd", rs.getString("userpwd"));
+				o.put("memo", rs.getString("memo"));
+				o.put("name", rs.getString("name"));
+				o.put("phone", rs.getString("phone"));
+				o.put("opid", rs.getString("opid"));
+				
+				return o;
+	
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}	
+		 return null;
+	}
+	
+	public List<user> getUserInfoName(int id){
+		conn=DBConn.getCon();
+		List<user> list=new ArrayList<user>();
+		try {
+			prst=conn.prepareStatement("select * from Users where userid=?");
+			prst.setInt(1, id);
+			rs=prst.executeQuery();
+			while(rs.next())
+			{
+				user u=new user();
+				u.setUserid(rs.getInt("userid"));
+				u.setUsername(rs.getString("username"));
+				u.setUserpwd(rs.getString("userpwd"));
+				u.setOpenid(rs.getString("opid"));
+				u.setMemo(rs.getString("memo"));
+				u.setName(rs.getString("name"));
+				u.setPhone(rs.getString("phone"));
+				
+				list.add(u);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}
+			return list;
+	}
+	
+	public List<user> getUserInfo(){
+		conn=DBConn.getCon();
+		List<user> list=new ArrayList<user>();
+		try {
+			prst=conn.prepareStatement("select * from Users");
+			rs=prst.executeQuery();
+			while(rs.next())
+			{
+				user u=new user();
+				u.setUserid(rs.getInt("userid"));
+				u.setUsername(rs.getString("username"));
+				u.setUserpwd(rs.getString("userpwd"));
+				u.setOpenid(rs.getString("opid"));
+				u.setMemo(rs.getString("memo"));
+				u.setName(rs.getString("name"));
+				u.setPhone(rs.getString("phone"));
+				u.setEmail(rs.getString("Email"));
+				list.add(u);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}
+			return list;
+	}
+	
+	
+	public int updateUserInfo(JSONObject uinfo){
+		conn=DBConn.getCon();
+		
+		try {
+			prst=conn.prepareStatement("update Users set username=?,userpwd=?,memo=?,name=?,phone=?,Email=? where userid=?");
+			prst.setString(1, uinfo.getString("duname"));
+			prst.setString(2, uinfo.getString("dpwd"));
+			prst.setString(3, uinfo.getString("dmemo"));
+			prst.setString(4, uinfo.getString("dname"));
+			prst.setString(5, uinfo.getString("dphone"));
+			prst.setString(6, uinfo.getString("demail"));
+			prst.setString(7, uinfo.getString("did"));
+			
+			prst.executeUpdate();
+			return 1;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();		
+			return 0;
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}	
+	}
+	
+	public int addUserInfo(JSONObject uinfo){
+		conn=DBConn.getCon();
+		try {
+			prst=conn.prepareStatement("insert into Users (username,userpwd,memo,name,phone)"+"values(?,?,?,?,?)");
+			prst.setString(1, uinfo.getString("duname"));
+			prst.setString(2, uinfo.getString("dpwd"));
+			prst.setString(3, uinfo.getString("dmemo"));
+			prst.setString(4, uinfo.getString("dname"));
+			prst.setString(5, uinfo.getString("dphone"));
+			
+			prst.executeUpdate();
+			return 1;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();		
+			return 0;
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}	
+	}
+	
+	
+	public int deleteUserById(int id){
+		conn=DBConn.getCon();
+		try {
+			prst=conn.prepareStatement("delete from Users where userid="+id);
+			prst.executeUpdate();
+		    return 1;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+	    	   return 0;
+		}finally{
+		       DBConn.closeDB(conn, prst, rs);
+	      }
+	}
+	
+	public JSONArray getUserById(int id){
+		conn=DBConn.getCon();
+		JSONArray arr=new JSONArray();
+		JSONObject o1 =new JSONObject();
+	    o1.put("name","全部");
+	    o1.put("userid","0");
+	    arr.add(o1);
+		try {
+			if(id==0){
+				prst=conn.prepareStatement("select userid,name from Users");
+			}else{
+				prst=conn.prepareStatement("select userid,name from Users where userid=?");
+				prst.setInt(1, id);
+			}
+			rs=prst.executeQuery();
+			JSONObject o=null;
+			while(rs.next()){
+				o =new JSONObject();	
+				o.put("userid", rs.getInt("userid"));
+				o.put("name", rs.getString("name"));
+				arr.add(o);
+			}
+			return arr;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}finally{
+			DBConn.closeDB(conn, prst, rs);
+		}	
+	}
+	
+	
+
+}

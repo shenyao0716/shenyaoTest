@@ -1,0 +1,214 @@
+<%@page import="net.sf.json.JSONArray"%>
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
+
+int userid=Integer.parseInt(session.getAttribute("userid").toString());
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="pragma" content="no-cache">
+	
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+    <link href="Static/js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+    <link href="Static/js/iCheck/skins/square/square.css" rel="stylesheet">
+    <link href="Static/js/iCheck/skins/square/red.css" rel="stylesheet">
+    <link href="Static/js/iCheck/skins/square/blue.css" rel="stylesheet">
+
+    <!--common-->
+    <link href="Static/css/style.css" rel="stylesheet">
+    <link href="Static/css/style-responsive.css" rel="stylesheet">
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    
+  </head> 
+ <body class="sticky-header">
+
+   <section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+        <!--logo and iconic logo start-->
+       
+        <div class="logo" style="text-align:center">
+            <a href="JSP/index.jsp"><img style="width:45px;height:45px;border-radius:22.5px" 
+               src="Static/images/title.png" alt=""></a>
+        </div>
+       <div class="logo-icon text-center">
+            <a href="JSP/index.jsp"><img style="width:45px;height:45px;border-radius:22.5px"
+                src="Static/images/title.png" alt=""></a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+
+            <!--sidebar nav start-->
+              <ul class="nav nav-pills nav-stacked custom-nav">
+                <li class="active"><a href="JSP/index.jsp"><i class="fa fa-square"></i> <span>首页</span></a>      
+                 <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-file-text"></i><span>会议清单管理</span></a>      
+                      <ul class="sub-menu-list">
+                         <li><a href="JSP/advance.jsp">预定会议信息 </a></li>
+                         <li><a href="JSP/ing.jsp">正在开始会议信息 </a></li>
+                         <li><a href="JSP/over.jsp">已结束会议信息 </a></li>
+                         <li><a href="JSP/cancel.jsp">已取消会议信息 </a></li>
+                     </ul>
+                 </li>
+                 <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-home"></i> <span>会议室管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/room.jsp">会议室信息查询</a></li>
+                     </ul>
+                 </li>
+                <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-envelope-o"></i> <span>请求管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/message.jsp">信息管理</a></li>
+                     </ul>
+                 </li>
+                 <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-bar-chart-o"></i> <span>统计信息管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/rsage.jsp">会议室使用情况报表</a></li>
+                        <li ><a href="JSP/usage.jsp">用户使用情况报表</a></li>
+                     </ul>
+                 </li>
+                  <li class="menu-list "><a href="JSP/index.jsp"><i class="fa fa-users"></i> <span>用户管理</span></a>      
+                      <ul class="sub-menu-list">
+                        <li><a href="JSP/user.jsp">用户信息查询</a></li>
+                     </ul>
+                 </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <jsp:include page="common.jsp" flush="true" />  
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+<!--         <div class="wrapper" style="overflow:auto">
+            <div class="row">
+                <div class="col-md-6">
+                    more statistics box start
+                    <div class="panel ">
+                        <div class="panel-body">
+                   
+                                   <div class="col-lg-10 col-lg-offset-2"> 
+                                     <img src="Static/images/index.png"  >
+                                   </div>
+                        
+                        </div>
+                    </div>
+                    more statistics box end
+
+
+                     statistics start
+                    <div class="row state-overview">
+                        <div class="col-lg-6 col-xs-12 col-sm-6">
+                            <div class="panel purple">
+                                <div class="symbol">
+                                    <i class="fa fa-bar-chart-o"></i>
+                                </div>
+                                <div class="state-value" id="visit">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <div class="panel red">
+                                <div class="symbol">
+                                    <i class="fa fa-file-text"></i>
+                                </div>
+                                <div class="state-value" id="plan">
+                                 
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row state-overview">
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <div class="panel blue">
+                                <div class="symbol">
+                                    <i class="fa fa-th-list"></i>
+                                </div>
+                                <div class="state-value" id="info">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <div class="panel green">
+                                <div class="symbol">
+                                    <i class="fa fa-picture-o"></i>
+                                </div>
+                                <div class="state-value" id="photo">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    statistics end
+                </div>               
+
+             <div class="col-md-6">
+                    <div class="panel">
+                        <header class="panel-heading">
+                                                                                                    近期计划
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>        
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <ul class="to-do-list" id="sortable-todo" >
+                             
+                            </ul>
+                           
+                        </div>
+                    </div>
+                </div>           
+            </div>    
+        </div> -->
+        <!--body wrapper end-->
+    </div>
+    <!-- main content end-->
+ </section>
+
+ <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="Static/js/jquery-1.10.2.min.js"></script>
+    <script src="Static/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="Static/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="Static/js/bootstrap.min.js"></script>
+    <script src="Static/js/modernizr.min.js"></script>
+    <script src="Static/js/jquery.nicescroll.js"></script>
+    
+    <!--icheck -->
+    <script src="Static/js/iCheck/jquery.icheck.js"></script>
+    <script src="Static/js/icheck-init.js"></script>
+
+    <!--common scripts for all pages-->
+    <script src="Static/js/scripts.js"></script>
+    
+    
+    <script>
+
+	  
+    </script>
+ </body>
+</html>

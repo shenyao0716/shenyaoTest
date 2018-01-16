@@ -1,0 +1,5 @@
+table tr,th,td{text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13px;}
+
+table td a{cursor:pointer}
+
+table {table-layout:fixed;margin-top:10px;}
